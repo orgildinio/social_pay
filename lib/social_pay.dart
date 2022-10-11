@@ -3,14 +3,11 @@ import 'dart:developer';
 import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-// import 'package:flutter_application_2/common/colors.dart';
-// import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-// import 'package:intl/intl.dart';
-// import 'package:http/http.dart' as http;
-// import 'package:get/get.dart';
-// import 'package:url_launcher/url_launcher.dart';
-// import 'package:webview_flutter/webview_flutter.dart';
-// import '../global_keys.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:intl/intl.dart';
+import 'package:social_pay/colors.dart';
+import 'package:http/http.dart' as http;
+import 'package:webview_flutter/webview_flutter.dart';
 
 class SocialPay extends StatefulWidget {
   double payloan;
@@ -168,10 +165,10 @@ class _SocialPayState extends State<SocialPay> {
     );
   }
   Future<dynamic> socailPay() async {
-    http.post(Uri.parse("http://192.168.1.110:3000/invoice"),
+    http.post(Uri.parse("http://localhost:3000/socialpay/invoice"),
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJNRVJDSEFOVF9WVUxDQU5fQU5BTElUWUNTX0xMQyIsImlhdCI6MTY2MDMwMTQwMH0.5S_u88JkeJ5EGQafbN3-5CftMOUEerQ8OBRhGjnLo9E',
+        //'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJNRVJDSEFOVF9WVUxDQU5fQU5BTElUWUNTX0xMQyIsImlhdCI6MTY2MDMwMTQwMH0.5S_u88JkeJ5EGQafbN3-5CftMOUEerQ8OBRhGjnLo9E',
       },
       body: jsonEncode({
         'amount': widget.payloan / 0.99,
